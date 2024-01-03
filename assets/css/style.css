@@ -44,3 +44,45 @@ body{
     flex-direction: column;
     gap: 25px;
 }
+
+.wrapper{
+    width: 700px;
+    padding: 35px;
+    background: white;
+    border-radius: 10px;
+}
+
+.wrapper .content-box{
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+.content-box .typing-text{
+    max-height: 255px;
+    overflow: auto;
+}
+.typing-text::-webkit-scrollbar{
+    width: 0;
+}
+.typing-text p{
+    font-size: 21px;
+    text-align: justify;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+ .content-box .content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 17px;
+    padding: 12px 0;
+    border-top: 1px solid #ccc;
+ }
+ .result-details{
+    list-style: none;
+ }
+ .content .result-details{
+    display: flex;
+    width: calc(100% - 140px);
+    justify-content: space-between;
+ }
+ 
