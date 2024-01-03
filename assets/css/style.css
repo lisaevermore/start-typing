@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: lightblue;
+}
+
+/* buttons */
+.easy{
+    background:  #04AA6D;
+}
+.easy:hover {
+    background-color: #2ea97c; 
+    color: white;
+}
+
+.medium{
+    background: #ffbd03;
+}
+.medium:hover {
+    background-color: #edb723;
+    color: white;
+}
+.hard{
+    background: #ff8503;
+}
+.hard:hover {
+    background-color: #ef9c42; 
+    color: white;
+}
+.expert{
+    background: #ED0800;
+}
+.expert:hover {
+    background-color: #e0433e; 
+    color: white;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 25px;
+}
