@@ -70,19 +70,54 @@ body{
     letter-spacing: 1px;
     word-break: break-all;
 }
- .content-box .content{
-    display: flex;
-    justify-content: space-between;
+
+.content-box .content{
     margin-top: 17px;
-    padding: 12px 0;
-    border-top: 1px solid #ccc;
- }
- .result-details{
-    list-style: none;
- }
- .content .result-details{
     display: flex;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+}
+.content button{
+    border: none;
+    outline: none;
+    width: 105px;
+    padding: 8px 0;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #2ea97c;
+ }
+
+.content .result-details{
+    display: flex;
+    align-items: center;
     width: calc(100% - 140px);
     justify-content: space-between;
  }
+.result-details li{
+    /* display: flex; */
+    list-style: none;
+    position: relative;
+    /* align-items: center; */
+    /* height: 20px; */
+}
+.result-details li:not(:first-child){
+    padding-left: 22px;
+    border-left: 1px solid #ccc;
+} 
+.result-details li p{
+    font-size: 19px;
+}
+.result-details li span{
+    display: block;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+
+
  
