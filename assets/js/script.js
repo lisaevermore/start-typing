@@ -1,12 +1,26 @@
-
-
 const input = document.querySelector("input");
 const log = document.getElementById("user-input");
 const sentence = document.getElementById("test-sentence");
+const typingText = document.querySelector(".typing-text p"),
+inputText = document.querySelector(".input-text .wrapper p");
+
+let inputIndex = 0;
 
 
-input.addEventListener("keydown", handleKeydown);
-const player_texts = []
+function randomParagraph() {
+    // console.log(paragraphs[1]);
+    let randomIndex = Math.floor(Math.random() * paragraphs.length);
+    typingText.innerHTML = "";
+
+    paragraphs[randomIndex].split("").forEach(span => {
+        let spanElement = `<span>${span}</span>`;
+        typingText.innerHTML += spanElement;
+    });
+
+}
+
+
+//const userInput = []
 
 function startGame() {
 
@@ -14,6 +28,31 @@ function startGame() {
 function startTimer() {} // when the timer is done game over and display the score 
 
 function handleKeydown(e) {
+  
+    const userInput = []
+    const character = typingText.querySelectorAll(`span`);
+    // userInput.push(e.key); 
+    let letter = e.key.split("").pop();
+    userInput.push(letter);
+   
+    if(character[inputIndex].innerText === userInput[0]) {
+        character[inputIndex].classList.add("correct");
+    } else {
+        character[inputIndex].classList.add("incorrect");
+    }
+    
+
+
+    if(e.key === "Backspace"){
+        inputIndex--;
+    } else{
+        inputIndex++;
+    }
+    console.log(userInput);
+    console.log(inputIndex);
+
+console.log(`Expected: ${character[inputIndex].innerText} | Actual: ${userInput}`);
+
     // if (e.code === "Space") {
     //     e.preventDefault();
     // }
@@ -21,11 +60,12 @@ function handleKeydown(e) {
         startGame();
         startTimer();
     }
-    player_texts.push(e.key)
+
 
    
    
 }
+
 // the timer should start when the user start typing
 
 
@@ -37,26 +77,14 @@ function handleKeydown(e) {
 //need to make sure the same character is in the right position in both the test and player text
 
 function comparingText(test, player) {
-    let words = test.textContent.split(" ") // split the text into an array of words
-    let playerletter = [] //"T"
-    let wordIndex = 0;
-    let letterIndex = 0;
-    let correctLetter = 0;
-    playerletter.push(player) 
-
-
-    // const isWordCompleted = letterIndex > textTest[wordIndex].length -1;
-
     
-  for (word in words) {
-    // console.log(words[word])
-    for (letter in words[word]) { //"T"
-       
-        
-    }
-  }
     
 
 }
+input.addEventListener("keydown", () => input.focus());
+log.addEventListener("click", () => input.focus());
+input.addEventListener("keydown", handleKeydown);
+randomParagraph();
+handleKeydown(log);
 
-comparingText(sentence, player_texts);
+comparingText(sentence, userInput);
