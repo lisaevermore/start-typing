@@ -70,6 +70,47 @@ body{
     letter-spacing: 1px;
     word-break: break-all;
 }
+.typing-text p span{
+    position: relative;
+}
+.typing-text p span{
+    position: relative;
+}
+.typing-text p span.correct{
+    color: #2ea97c;
+ 
+}
+.typing-text p span.incorrect{
+    color: #cb3439;
+    outline: 1px solid #fff;
+    background: #ffc0cb;
+    border-radius: 4px;
+}
+
+.typing-text p span.active{
+    color: rgb(0, 157, 255);
+}
+.typing-text p span.active::before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 1.5px;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 5px;
+    background: #2ea97c;
+    animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink{
+  50%{ 
+    opacity: 1; 
+  }
+
+}
+
+
+
 
 .content-box .content{
     margin-top: 17px;
