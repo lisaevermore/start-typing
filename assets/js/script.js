@@ -2,8 +2,8 @@
 //if the characters match, add a point to the score and turn the color of the text green
 //if the characters do not match, turn the color of the text red and update the mistakes score
 //need to make sure the same character is in the right position in both the test and player text
-
-
+// to calculate the wpm, we need to split the text into words and count the words
+// the we need to multiply the words per min by the average number of characters per word
 
 const typingText = document.querySelector(".typing-text p"),
 userInput = document.querySelector(".wrapper .user-input"),
@@ -11,7 +11,7 @@ tryAgainBtn = document.querySelector(".content button"),
 timeTag = document.querySelector(".time span b"),
 mistakeTag = document.querySelector(".mistake span"),
 wpmTag = document.querySelector(".wpm span"),
-cpmTag = document.querySelector(".cpm span");
+accuracyTag = document.querySelector(".accuracy span");
 
 let inputIndex = 0;
 let timer,
@@ -22,28 +22,46 @@ mistakes = 0,
 typing = false,
 typedWord = 0;
 
-const gameStatus ={
+const correctTypedCha = []
+let correctTypedWord = correctTypedCha.join(" ");
 
-}
+//geting random Paragraph/quote from API
+async function randomQuote() {
+    //const easyResponse = await fetch('https://api.quotable.io/random?minLength=80&maxLength=100');
+    const response = await fetch('https://api.quotable.io/random?minLength=150&maxLength=200');
 
-function randomParagraph() {
-    let randomIndex = Math.floor(Math.random() * paragraphs.length);
+    //const mediumResponse = await fetch('https://api.quotable.io/random?minLength=80&maxLength=100');
+
+    //const headResponse = await fetch('https://api.quotable.io/random?minLength=80&maxLength=100');
+
+    const quote = await response.json()
+  
     typingText.innerHTML = "";
-    let paragraph = paragraphs[randomIndex];
-    paragraph.split("").forEach(span => {
+    quote.content.split("").forEach(span => {
         let spanElement = `<span>${span}</span>`;
         typingText.innerHTML += spanElement;
     });
-    //console.log(paragraph.split(" "));
-    //calculateWpm(paragraph)
 
-}
+  }
+  
+
+
+// function randomParagraph() {
+//     let randomIndex = Math.floor(Math.random() * paragraphs.length);
+//     typingText.innerHTML = "";
+//     let paragraph = paragraphs[randomIndex];
+//     paragraph.split("").forEach(span => {
+//         let spanElement = `<span>${span}</span>`;
+//         typingText.innerHTML += spanElement;
+//     });
+
+// }
 
 
 // when the timer is done game over and display the score 
 
 function startTimer() {
-    let timer = setInterval(function() {
+     timer = setInterval(function() {
         timeTag.innerText = maxTime;
         maxTime--;
         if(maxTime <= 0) { //when the timer is done, game over
@@ -52,21 +70,15 @@ function startTimer() {
         }
     }, 1000);
 
-    return timer;
+return maxTime;
 }
-//when the timer runout the game should reset and start again
-function gameReset() {
-    randomParagraph();
-    // initTypingGame();
-    console.log("Game Reset");
-}
+
 
 // the timer should start when the user start typing
 function initTypingGame() {
     const characters = typingText.querySelectorAll("span");
     let typedChar = userInput.value.split("")[inputIndex];
-    // console.log(typedChar);
-    // console.log(userInput.value.split(""));
+  
     if(typedChar == null) { 
         // if the character is not null, then check if it matches the expected character
         // if it does not match, then remove the character from the input box and move the cursor to the left
@@ -80,62 +92,56 @@ function initTypingGame() {
             //add correct or incorrect class to the character
             // if the character matches, then add a point to the score and turn the color of the text green
             characters[inputIndex].classList.add("correct");
+            correctTypedCha.push(typedChar);
         } else {
             mistakes++;
             characters[inputIndex].classList.add("incorrect");   
         }
         inputIndex++;
     }
+   if(characters[inputIndex] === undefined){ // when the user input is done, the game should end
+        userInput.value = ""; //clear user input field
+        clearInterval(timer);
+        calculateAcc() 
+   }
 
     //console.log(`Expected: ${character[inputIndex].innerText} | Actual: ${typedChar}`);
     
     characters.forEach(span => span.classList.remove("active"));
     characters[inputIndex].classList.add("active");
 
+    let sumWpm = Math.round((((inputIndex - mistakes) / 5) / (maxTime - timeLeft )) * 60);
+
+    let wpm = (Math.abs(sumWpm) * 2);
     mistakeTag.innerText = mistakes; // updated any mistakes to the page
-    
+    wpmTag.innerText = wpm;
+ 
     if(!typing){ // the timer should start when the user start typing
         startTimer()
-   
         typing = true;
     }
-
-    userInput.addEventListener("keydown", (event) => {
-        if(event.code === "Space") {
-            typedWord++;
-        }
-  
-      });
-
 }
 
-// function calculateWpm(str) {
-//     let wordsTotal = str.split(" ").length;
-//     let cpm = 0;
-//     // console.log(cpm);
-//     userInput.addEventListener("keydown", (event) => {
-//         // console.log(event);
-//         if(event.code === "Space") {
-//             typedWord++;
-//         }
-//         cpm = wordsTotal / typedWord;
-      
-//       });
-   
-     
-   
-
-// }
+//when the timer runout the game should reset and start again
+function gameReset() {
+    //randomParagraph();
+    randomQuote()
+    maxTime = 60;
+    userInput.value = "";
+    console.log("Game Reset");
+}
 
 
-// to calculate the wpm, we need to split the text into words and count the words
-// the we need to multiply yhe words per min by the average number of characters per word
-function calculateCpm(){}
+function calculateAcc() {
+    let word = correctTypedCha.join(" ");
+    let accuracy = (Math.round(word.length - mistakes) / word.length) * 100;
+    accuracyTag.innerHTML = accuracy.toFixed(2);
+}
 
 
 
-randomParagraph();
-// calculateWpm();
+//randomParagraph();
+randomQuote()
 
 tryAgainBtn.addEventListener("click", gameReset);
 
