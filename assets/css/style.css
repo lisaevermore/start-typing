@@ -9,32 +9,32 @@ body{
 }
 
 /* buttons */
-.easy{
+.easy-btn{
     background:  #04AA6D;
 }
-.easy:hover {
+.easy-btn:hover {
     background-color: #2ea97c; 
     color: white;
 }
 
-.medium{
+.medium-btn{
     background: #ffbd03;
 }
-.medium:hover {
+.medium-btn:hover {
     background-color: #edb723;
     color: white;
 }
-.hard{
+.hard-btn{
     background: #ff8503;
 }
-.hard:hover {
+.hard-btn:hover {
     background-color: #ef9c42; 
     color: white;
 }
-.expert{
+.expert-btn{
     background: #ED0800;
 }
-.expert:hover {
+.expert-btn:hover {
     background-color: #e0433e; 
     color: white;
 }

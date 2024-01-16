@@ -11,7 +11,11 @@ tryAgainBtn = document.querySelector(".content button"),
 timeTag = document.querySelector(".time span b"),
 mistakeTag = document.querySelector(".mistake span"),
 wpmTag = document.querySelector(".wpm span"),
-accuracyTag = document.querySelector(".accuracy span");
+accuracyTag = document.querySelector(".accuracy span"),
+easyBtn = document.querySelector(".easy-btn"),
+mediumBtn = document.querySelector(".medium-btn"),
+hardBtn = document.querySelector(".hard-btn"),
+expertBtn = document.querySelector(".expert-btn");
 
 let inputIndex = 0;
 let timer,
@@ -21,19 +25,64 @@ charIndex = 0,
 mistakes = 0,
 typing = false,
 typedWord = 0;
+//btnOb = [];
 
-const correctTypedCha = []
+const correctTypedCha = [];
 let correctTypedWord = correctTypedCha.join(" ");
 
-//geting random Paragraph/quote from API
+//getting random Paragraph/quote from API
 async function randomQuote() {
-    //const easyResponse = await fetch('https://api.quotable.io/random?minLength=80&maxLength=100');
-    const response = await fetch('https://api.quotable.io/random?minLength=150&maxLength=200');
+    
+    const apiKey = 'https://api.quotable.io/random'
 
-    //const mediumResponse = await fetch('https://api.quotable.io/random?minLength=80&maxLength=100');
+    let responseKey = '';
 
-    //const headResponse = await fetch('https://api.quotable.io/random?minLength=80&maxLength=100');
+    // console.log(difficultyLevel[0])
 
+    // if(difficultyLevel === "easy"){
+    //     console.log("easy")
+    //     responseKey = ('?minLength=80&maxLength=100')
+    // } else if(difficultyLevel[0] === "medium"){
+    //     responseKey = ('?minLength=100&maxLength=150')
+    // } else if(difficultyLevel[0] === "hard"){
+    //     responseKey = ('?minLength=200&maxLength=250')
+    // } else if(difficultyLevel[0] === "expert"){
+    //     responseKey = ('?minLength=300&maxLength=300')
+    // }
+    
+    function btnHandler() { 
+        let classAtt = this.getAttribute('class').split(' ');
+        
+       if (classAtt[2] === "easy-btn") {
+        responseKey = ('?minLength=80&maxLength=100')
+            console.log("clicked easy");
+       } else if(classAtt[2] === "medium-btn") {
+        responseKey = ('?minLength=100&maxLength=150')
+        console.log("clicked medium");
+       } else if(classAtt[2] === "hard-btn") {
+        responseKey = ('?minLength=200&maxLength=250')
+        console.log("clicked hard");
+       } else if(classAtt[2] === "expert-btn") {
+        responseKey = ('?minLength=300&maxLength=300')
+        console.log("clicked expert");
+       }
+       console.log(responseKey)
+     
+    }
+
+
+    console.log(responseKey)
+ 
+    easyBtn.addEventListener("click", btnHandler);
+    mediumBtn.addEventListener("click", btnHandler);
+    hardBtn.addEventListener("click", btnHandler);
+    expertBtn.addEventListener("click", btnHandler);
+
+    const apiResponse = (`${apiKey}${responseKey}`)
+    const response = await fetch(`${apiResponse}`);
+    
+    //console.log(apiResponse)
+ 
     const quote = await response.json()
   
     typingText.innerHTML = "";
@@ -42,20 +91,41 @@ async function randomQuote() {
         typingText.innerHTML += spanElement;
     });
 
-  }
-  
+}
 
+// function btnHandler() { 
+//     let classAtt = this.getAttribute('class').split(' ');
 
-// function randomParagraph() {
-//     let randomIndex = Math.floor(Math.random() * paragraphs.length);
-//     typingText.innerHTML = "";
-//     let paragraph = paragraphs[randomIndex];
-//     paragraph.split("").forEach(span => {
-//         let spanElement = `<span>${span}</span>`;
-//         typingText.innerHTML += spanElement;
-//     });
-
+//    if (classAtt[2] === "easy-btn") {
+//     btnOb.push("easy");
+//         console.log("clicked easy");
+//    } else if(classAtt[2] === "medium-btn") {
+//         btnOb.push("medium");
+//     console.log("clicked medium");
+//    } else if(classAtt[2] === "hard-btn") {
+//         btnOb.push("hard");
+//     console.log("clicked hard");
+//    } else if(classAtt[2] === "expert-btn") {
+//         btnOb.push("expert");
+//     console.log("clicked expert");
+//    }
+   
+//    return btnOb;
 // }
+
+
+
+function randomParagraph() {
+
+    let randomIndex = Math.floor(Math.random() * paragraphs.length);
+    typingText.innerHTML = "";
+    let paragraph = paragraphs[randomIndex];
+    paragraph.split("").forEach(span => {
+        let spanElement = `<span>${span}</span>`;
+        typingText.innerHTML += spanElement;
+    });
+
+}
 
 
 // when the timer is done game over and display the score 
@@ -64,7 +134,7 @@ function startTimer() {
      timer = setInterval(function() {
         timeTag.innerText = maxTime;
         maxTime--;
-        if(maxTime <= 0) { //when the timer is done, game over
+        if(maxTime < 0) { //when the timer is done, game over
             gameReset();
             clearInterval(timer);
         }
@@ -102,7 +172,7 @@ function initTypingGame() {
    if(characters[inputIndex] === undefined){ // when the user input is done, the game should end
         userInput.value = ""; //clear user input field
         clearInterval(timer);
-        calculateAcc() 
+        calculateAcc();
    }
 
     //console.log(`Expected: ${character[inputIndex].innerText} | Actual: ${typedChar}`);
@@ -124,11 +194,16 @@ function initTypingGame() {
 
 //when the timer runout the game should reset and start again
 function gameReset() {
-    //randomParagraph();
-    randomQuote()
+    randomParagraph();
+    //randomQuote();
     maxTime = 60;
     userInput.value = "";
+    mistakeTag.innerText = 0; // updated any mistakes to the page
+    wpmTag.innerText = 0;
+    timeTag.innerText = 60;
+    accuracyTag.innerHTML = 0;
     console.log("Game Reset");
+    userInput.addEventListener("input", initTypingGame);
 }
 
 
@@ -138,9 +213,12 @@ function calculateAcc() {
     accuracyTag.innerHTML = accuracy.toFixed(2);
 }
 
+// easyBtn.addEventListener("click", btnHandler);
+// mediumBtn.addEventListener("click", btnHandler);
+// hardBtn.addEventListener("click", btnHandler);
+// expertBtn.addEventListener("click", btnHandler);
 
-
-//randomParagraph();
+randomParagraph();
 randomQuote()
 
 tryAgainBtn.addEventListener("click", gameReset);
