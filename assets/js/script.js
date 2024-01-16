@@ -25,58 +25,32 @@ charIndex = 0,
 mistakes = 0,
 typing = false,
 typedWord = 0;
-//btnOb = [];
+
 
 const correctTypedCha = [];
 let correctTypedWord = correctTypedCha.join(" ");
+let responseKey ;
+
+function btnHandler() { 
+    let classAtt = this.getAttribute('class').split(' ');
+    
+   if (classAtt[2] === "easy-btn") {
+    responseKey = ('?minLength=80&maxLength=100')
+   } else if(classAtt[2] === "medium-btn") {
+    responseKey = ('?minLength=100&maxLength=150')
+   } else if(classAtt[2] === "hard-btn") {
+    responseKey = ('?minLength=200&maxLength=250')
+   } else if(classAtt[2] === "expert-btn") {
+    responseKey = ('?minLength=300&maxLength=300')
+   }
+
+   randomQuote()
+ 
+}
 
 //getting random Paragraph/quote from API
 async function randomQuote() {
-    
     const apiKey = 'https://api.quotable.io/random'
-
-    let responseKey = '';
-
-    // console.log(difficultyLevel[0])
-
-    // if(difficultyLevel === "easy"){
-    //     console.log("easy")
-    //     responseKey = ('?minLength=80&maxLength=100')
-    // } else if(difficultyLevel[0] === "medium"){
-    //     responseKey = ('?minLength=100&maxLength=150')
-    // } else if(difficultyLevel[0] === "hard"){
-    //     responseKey = ('?minLength=200&maxLength=250')
-    // } else if(difficultyLevel[0] === "expert"){
-    //     responseKey = ('?minLength=300&maxLength=300')
-    // }
-    
-    function btnHandler() { 
-        let classAtt = this.getAttribute('class').split(' ');
-        
-       if (classAtt[2] === "easy-btn") {
-        responseKey = ('?minLength=80&maxLength=100')
-            console.log("clicked easy");
-       } else if(classAtt[2] === "medium-btn") {
-        responseKey = ('?minLength=100&maxLength=150')
-        console.log("clicked medium");
-       } else if(classAtt[2] === "hard-btn") {
-        responseKey = ('?minLength=200&maxLength=250')
-        console.log("clicked hard");
-       } else if(classAtt[2] === "expert-btn") {
-        responseKey = ('?minLength=300&maxLength=300')
-        console.log("clicked expert");
-       }
-       console.log(responseKey)
-     
-    }
-
-
-    console.log(responseKey)
- 
-    easyBtn.addEventListener("click", btnHandler);
-    mediumBtn.addEventListener("click", btnHandler);
-    hardBtn.addEventListener("click", btnHandler);
-    expertBtn.addEventListener("click", btnHandler);
 
     const apiResponse = (`${apiKey}${responseKey}`)
     const response = await fetch(`${apiResponse}`);
@@ -92,31 +66,13 @@ async function randomQuote() {
     });
 
 }
-
-// function btnHandler() { 
-//     let classAtt = this.getAttribute('class').split(' ');
-
-//    if (classAtt[2] === "easy-btn") {
-//     btnOb.push("easy");
-//         console.log("clicked easy");
-//    } else if(classAtt[2] === "medium-btn") {
-//         btnOb.push("medium");
-//     console.log("clicked medium");
-//    } else if(classAtt[2] === "hard-btn") {
-//         btnOb.push("hard");
-//     console.log("clicked hard");
-//    } else if(classAtt[2] === "expert-btn") {
-//         btnOb.push("expert");
-//     console.log("clicked expert");
-//    }
-   
-//    return btnOb;
-// }
-
+easyBtn.addEventListener("click", btnHandler);
+mediumBtn.addEventListener("click", btnHandler);
+hardBtn.addEventListener("click", btnHandler);
+expertBtn.addEventListener("click", btnHandler);
 
 
 function randomParagraph() {
-
     let randomIndex = Math.floor(Math.random() * paragraphs.length);
     typingText.innerHTML = "";
     let paragraph = paragraphs[randomIndex];
