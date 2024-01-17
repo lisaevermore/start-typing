@@ -25,12 +25,13 @@ A fun and interactive game designed to enhance your typing speed and improve tou
 
 ## Wireframe Design
 ** Initial Idea**
-![IMG_8569](https://github.com/lisaevermore/love-running/assets/70776430/ee262557-63e1-46f5-81cb-50a36364d8d5)
-![IMG_8570](https://github.com/lisaevermore/love-running/assets/70776430/25da7041-99bc-4e0d-9d09-5b68bdda3465)
-![IMG_8571](https://github.com/lisaevermore/love-running/assets/70776430/8672d17d-75f0-4608-ae94-d45a0e30102f)
-
-<img width="1047" alt="Screenshot 2024-01-17 at 15 55 50" src="https://github.com/lisaevermore/love-running/assets/70776430/8e1939fd-9400-41a1-803a-8bef6f01b26b">
-
+<img width="1047" alt="Screenshot 2024-01-17 at 15 55 50" src="https://github.com/lisaevermore/start-typing/assets/70776430/0e58284d-4ee1-40f0-a5f2-0d4b2551b640">
+<img width="410" alt="Screenshot 2024-01-17 at 16 24 10" src="https://github.com/lisaevermore/start-typing/assets/70776430/fbe2d167-1749-41b8-8d0c-8a6c696f6917">
+<img width="422" alt="Screenshot 2024-01-17 at 16 24 24" src="https://github.com/lisaevermore/start-typing/assets/70776430/385c4903-bda9-4f21-a8df-8eef24c0c373">
+<img width="430" alt="Screenshot 2024-01-17 at 16 24 45" src="https://github.com/lisaevermore/start-typing/assets/70776430/db1bbf27-759e-4f76-9fdb-82a009540808">
+<img width="694" alt="Screenshot 2024-01-15 at 16 41 44" src="https://github.com/lisaevermore/start-typing/assets/70776430/de7890af-d5d4-47b5-8174-ac442dc4e537">
+<img width="830" alt="Screenshot 2024-01-15 at 16 42 05" src="https://github.com/lisaevermore/start-typing/assets/70776430/a9f5899d-c60e-4452-bc1a-3db107d2e1d8">
+<img width="867" alt="Screenshot 2024-01-15 at 16 42 40" src="https://github.com/lisaevermore/start-typing/assets/70776430/262b7f7e-54ba-4ea6-afcb-a0b35cbb0317">
 
 
 
