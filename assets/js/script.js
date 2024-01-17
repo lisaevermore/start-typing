@@ -17,9 +17,9 @@ mediumBtn = document.querySelector(".medium-btn"),
 hardBtn = document.querySelector(".hard-btn"),
 expertBtn = document.querySelector(".expert-btn");
 
-let inputIndex = 0;
 let timer,
 maxTime = 60,
+inputIndex = 0,
 timeLeft = maxTime,
 charIndex = 0,
 mistakes = 0,
@@ -33,30 +33,45 @@ let responseKey ;
 
 function btnHandler() { 
     let classAtt = this.getAttribute('class').split(' ');
-    
-   if (classAtt[2] === "easy-btn") {
+ 
+    if (classAtt[2] === "easy-btn") {
     responseKey = ('?minLength=80&maxLength=100')
    } else if(classAtt[2] === "medium-btn") {
     responseKey = ('?minLength=100&maxLength=150')
    } else if(classAtt[2] === "hard-btn") {
     responseKey = ('?minLength=200&maxLength=250')
-   } else if(classAtt[2] === "expert-btn") {
-    responseKey = ('?minLength=300&maxLength=300')
    }
 
-   randomQuote()
+   
+
+     // Only call the randomQuote() function if it's not an "expert-btn"
+    if(classAtt[2] !== "expert-btn") {
+        randomQuote();
+    }
+    if(classAtt[2] === "expert-btn") {
+        expertParagraph();
+    }
+  
  
 }
 
 //getting random Paragraph/quote from API
 async function randomQuote() {
     const apiKey = 'https://api.quotable.io/random'
+        // Attempt to call the API function (e.g., randomQuote())
+        try {
+            if(responseKey === undefined) {
+                alert("Please select a difficulty level");
+            }
+        } catch (error) {
+            // Handle the case where the API is not working by calling the backup function
+            alert("API is not working");
+            randomParagraph();
+        }
 
     const apiResponse = (`${apiKey}${responseKey}`)
     const response = await fetch(`${apiResponse}`);
     
-    //console.log(apiResponse)
- 
     const quote = await response.json()
   
     typingText.innerHTML = "";
@@ -72,6 +87,16 @@ hardBtn.addEventListener("click", btnHandler);
 expertBtn.addEventListener("click", btnHandler);
 
 
+function expertParagraph() {
+    let randomIndex = Math.floor(Math.random() * expertParagraphs.length);
+    typingText.innerHTML = "";
+    let paragraph = expertParagraphs[randomIndex];
+    paragraph.split("").forEach(span => {
+        let spanElement = `<span>${span}</span>`;
+        typingText.innerHTML += spanElement;
+    });
+
+}
 function randomParagraph() {
     let randomIndex = Math.floor(Math.random() * paragraphs.length);
     typingText.innerHTML = "";
@@ -84,6 +109,7 @@ function randomParagraph() {
 }
 
 
+
 // when the timer is done game over and display the score 
 
 function startTimer() {
@@ -91,8 +117,13 @@ function startTimer() {
         timeTag.innerText = maxTime;
         maxTime--;
         if(maxTime < 0) { //when the timer is done, game over
-            gameReset();
             clearInterval(timer);
+            mistakeTag.innerText = mistakes; // updated any mistakes to the page
+            wpmTag.innerText = wpm;
+            accuracyTag.innerHTML = accuracy.toFixed(2);
+            
+            
+            gameReset();
         }
     }, 1000);
 
