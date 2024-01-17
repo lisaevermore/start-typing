@@ -24,11 +24,13 @@ A fun and interactive game designed to enhance your typing speed and improve tou
 - **Quotable API**: Fetching inspirational quotes to display during the typing test.
 
 ## Wireframe Design
-![IMG_8569](https://github.com/lisaevermore/love-running/assets/70776430/23a846df-24da-4a31-984c-d6aea951a996)
+** Initial Idea**
+![IMG_8569](https://github.com/lisaevermore/love-running/assets/70776430/ee262557-63e1-46f5-81cb-50a36364d8d5)
+![IMG_8570](https://github.com/lisaevermore/love-running/assets/70776430/25da7041-99bc-4e0d-9d09-5b68bdda3465)
+![IMG_8571](https://github.com/lisaevermore/love-running/assets/70776430/8672d17d-75f0-4608-ae94-d45a0e30102f)
+
 <img width="1047" alt="Screenshot 2024-01-17 at 15 55 50" src="https://github.com/lisaevermore/love-running/assets/70776430/8e1939fd-9400-41a1-803a-8bef6f01b26b">
-![IMG_8569](https://github.com/lisaevermore/love-running/assets/70776430/a046d88b-a2df-4458-a2ea-81b2dab5a52f)
-![IMG_8570](https://github.com/lisaevermore/love-running/assets/70776430/c36e395f-00f9-4492-80e1-8a5770c7f7da)
-![IMG_8571](https://github.com/lisaevermore/love-running/assets/70776430/bdcf104a-5f63-4510-9d51-4853567e4ccf)
+
 
 
 
