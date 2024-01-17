@@ -25,15 +25,20 @@ A fun and interactive game designed to enhance your typing speed and improve tou
 
 ## Wireframe Design
 **Initial Idea**
+
 <img width="466" height="437" alt="Screenshot 2024-01-17 at 16 24 10" src="https://github.com/lisaevermore/start-typing/assets/70776430/fbe2d167-1749-41b8-8d0c-8a6c696f6917">
 <img width="466" height="437" alt="Screenshot 2024-01-17 at 16 24 24" src="https://github.com/lisaevermore/start-typing/assets/70776430/385c4903-bda9-4f21-a8df-8eef24c0c373">
 <img width="466" height="437" alt="Screenshot 2024-01-17 at 16 24 45" src="https://github.com/lisaevermore/start-typing/assets/70776430/db1bbf27-759e-4f76-9fdb-82a009540808">
+
+**Features/functionality**
 
 <img width="466" height="437" alt="Screenshot 2024-01-15 at 16 41 44" src="https://github.com/lisaevermore/start-typing/assets/70776430/de7890af-d5d4-47b5-8174-ac442dc4e537">
 <img width="466" height="437" alt="Screenshot 2024-01-15 at 16 42 05" src="https://github.com/lisaevermore/start-typing/assets/70776430/a9f5899d-c60e-4452-bc1a-3db107d2e1d8">
 <img width="466" height="437" alt="Screenshot 2024-01-15 at 16 42 40" src="https://github.com/lisaevermore/start-typing/assets/70776430/262b7f7e-54ba-4ea6-afcb-a0b35cbb0317">
 
-<img width="500" height="537" alt="Screenshot 2024-01-17 at 15 55 50" src="https://github.com/lisaevermore/start-typing/assets/70776430/0e58284d-4ee1-40f0-a5f2-0d4b2551b640">
+**Finalise Idea**
+
+<img alt="Screenshot 2024-01-17 at 15 55 50" src="https://github.com/lisaevermore/start-typing/assets/70776430/0e58284d-4ee1-40f0-a5f2-0d4b2551b640">
 
 
 
