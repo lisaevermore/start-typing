@@ -69,17 +69,16 @@ Feel free to contribute to the development of this game. For bug reports, featur
 ## Testing
 **Validator Testing**
 - HTML:
-  <img width="1440" alt="Screenshot 2024-01-17 at 16 50 20" src="https://github.com/lisaevermore/start-typing/assets/70776430/efe6c535-4130-4c52-8350-3d947013097a">
-  
+  <img width="943" alt="Screenshot 2024-01-17 at 16 49 24" src="https://github.com/lisaevermore/start-typing/assets/70776430/ec537f8e-b710-4ef1-8f80-12752bf7f678">   
 - CSS:
- <img width="1440" alt="Screenshot 2024-01-17 at 16 54 00" src="https://github.com/lisaevermore/start-typing/assets/70776430/ce39bc45-d548-4739-8580-4d82d0400fa8">
-
+  <img width="1435" alt="Screenshot 2024-01-17 at 16 50 20" src="https://github.com/lisaevermore/start-typing/assets/70776430/63e44c18-818b-4273-9486-36d35e84539b">
 - JavaScript : No errors were found when passing through the official [Jshint validator](https://jshint.com/)
   * There are 13 functions in this file.
   * Function with the largest signature take 1 arguments, while the median is 0.
   * Largest function has 26 statements in it, while the median is 4.
   * The most complex function has a cyclomatic complexity value of 6 while the median is 1.
-      <img width="1440" alt="Screenshot 2024-01-17 at 16 49 24" src="https://github.com/lisaevermore/start-typing/assets/70776430/a85cf023-245c-4fef-9f41-79a440fe84f9">
+   <img width="1088" alt="Screenshot 2024-01-17 at 16 54 00" src="https://github.com/lisaevermore/start-typing/assets/70776430/84a1d95f-d0c0-4717-b858-565b1edbdbd3">
+     
 
 ## License
 
