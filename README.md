@@ -1,4 +1,4 @@
-# start-typing
+# ...Start-typing...
 ## Typing Speed Test Game
 
 A fun and interactive game designed to enhance your typing speed and improve touch typing skills. Challenge yourself with a 60-second typing test and see how many words you can type accurately within the time limit. This game provides instant feedback on mistakes, calculates your Words Per Minute (WPM), and evaluates your typing accuracy.
