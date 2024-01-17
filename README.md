@@ -67,15 +67,16 @@ A fun and interactive game designed to enhance your typing speed and improve tou
 Feel free to contribute to the development of this game. For bug reports, feature requests, or code contributions, please follow the guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ## Testing
-- JavaScript :
-No errors were found when passing through the official Jshint validator
-* There are 13 functions in this file.
+**Validator Testing**
+- HTML:
   
-  Function with the largest signature take 1 arguments, while the median is 0.
-  
-  Largest function has 26 statements in it, while the median is 4.
-  
-  The most complex function has a cyclomatic complexity value of 6 while the median is 1.
+- CSS:
+
+- JavaScript : No errors were found when passing through the official [Jshint validator](https://jshint.com/)
+  * There are 13 functions in this file.
+  * Function with the largest signature take 1 arguments, while the median is 0.
+  * Largest function has 26 statements in it, while the median is 4.
+  * The most complex function has a cyclomatic complexity value of 6 while the median is 1.
 
 ## License
 
