@@ -25,7 +25,7 @@ A fun and interactive game designed to enhance your typing speed and improve tou
 
 ## Wireframe Design
 ** Initial Idea**
-<img width="1047" alt="Screenshot 2024-01-17 at 15 55 50" src="https://github.com/lisaevermore/start-typing/assets/70776430/0e58284d-4ee1-40f0-a5f2-0d4b2551b640">
+<img width="500" alt="Screenshot 2024-01-17 at 15 55 50" src="https://github.com/lisaevermore/start-typing/assets/70776430/0e58284d-4ee1-40f0-a5f2-0d4b2551b640">
 <img width="410" alt="Screenshot 2024-01-17 at 16 24 10" src="https://github.com/lisaevermore/start-typing/assets/70776430/fbe2d167-1749-41b8-8d0c-8a6c696f6917">
 <img width="422" alt="Screenshot 2024-01-17 at 16 24 24" src="https://github.com/lisaevermore/start-typing/assets/70776430/385c4903-bda9-4f21-a8df-8eef24c0c373">
 <img width="430" alt="Screenshot 2024-01-17 at 16 24 45" src="https://github.com/lisaevermore/start-typing/assets/70776430/db1bbf27-759e-4f76-9fdb-82a009540808">
